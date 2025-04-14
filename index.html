@@ -1,353 +1,657 @@
+
 <!DOCTYPE html>
+
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Housing_Prices</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Housing_Prices</title>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<style>
+  body {
+      margin: 0;
+      font-size: 20px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-rendering: optimizeLegibility;
+      background-color: #f3f9fd;
+  }
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-size: 20px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            text-rendering: optimizeLegibility;
-            background-color: #f3f9fd;
-        }
+  .content {
+      max-width: 700px;
+      margin: auto;
+  }
 
-        .content {
-            max-width: 700px;
-            margin: auto;
-        }
+  .header {
+      padding: 3em 0;
+  }
 
-        .header {
-            padding: 3em 0;
-        }
+  a {
+      color: #272c89;
+  }
 
-        a {
-            color: #272c89;
-        }
+  .footer {
+      background: #f4f4f4;
+      text-align: center;
+      font-size: 0.8em;
+      margin-top: 4em;
+      padding: 4em 0;
+  }
 
-        .footer {
-            background: #f4f4f4;
-            text-align: center;
-            font-size: 0.8em;
-            margin-top: 4em;
-            padding: 4em 0;
-        }
+  figure {
+      margin: 0;
+      padding-bottom: 1.2em;
+  }
 
-        figure {
-            margin: 0;
-            padding-bottom: 1.2em;
-        }
+  figcaption {
+      font-size: 0.8em;
+      text-align: center;
+      margin-top: 0.5em;
+      color: #666;
+  }
 
-        figcaption {
-            font-size: 0.8em;
-            text-align: center;
-            margin-top: 0.5em;
-            color: #666;
-        }
+  h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-weight: bold;
+      font-size: 3em;
+      line-height: 1.1;
+  }
 
-        h1 {
-            font-family: 'Lora', Georgia, serif;
-            font-weight: bold;
-            font-size: 3em;
-            line-height: 1.1;
-        }
+  .subhead {
+      font-family: 'Lora', Georgia, serif;
+  }
 
-        .subhead {
-            font-family: 'Lora', Georgia, serif;
-        }
+  .full-width figure {
+      text-align: center;
+  }
 
-        .full-width figure {
-            text-align: center;
-        }
+  iframe,
+  img,
+  video {
+      max-width: 100%;
 
-        iframe,
-        img,
-        video {
-            max-width: 100%;
+  }
 
-        }
+  p {
+      line-height: 1.6;
+      margin: 0;
+      padding-bottom: 1.2em;
+  }
 
-        p {
-            line-height: 1.6;
-            margin: 0;
-            padding-bottom: 1.2em;
-        }
+  ul {
+      margin: 0;
+      padding-bottom: 1em;
+      line-height: 1.6;
+  }
 
-        ul {
-            margin: 0;
-            padding-bottom: 1em;
-            line-height: 1.6;
-        }
+  iframe {
+      padding-bottom: 1.2em;
+  }
 
-        iframe {
-            padding-bottom: 1.2em;
-        }
-
-        code {
-            font-family: 'Courier New', monospace;
-            background: #cbc99f;
-        }
-        .scrolly-container {
-    position: relative;
-    margin-bottom: 1.2em;
+  code {
+      font-family: 'Courier New', monospace;
+      background: #cbc99f;
+  }
+  .scrolly-container {
+position: relative;
+  position: relative;
+  margin-bottom: 8em;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+
 .sticky-thing {
-    position: sticky;
-    top: 0;
-    transform: translate(0px, 0px);
-    z-index: 0;
-    height: 100svh;
-    width: 100vw;
-    margin: 0;
-    overflow: hidden;
+position: sticky;
+top: 0;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: visible;
+max-width: 700px;
+margin: 0 auto;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: visible;
 }
 
 .sticky-thing > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;  
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;  
 }
 
 .video-container {
-    position: sticky;
-    top: 0;
-    z-index: -1;
+position: sticky;
+top: 0;
+z-index: -1;
 }
 
 .scrolly-container video {
-    position: absolute;
-    top: 0;
-    height: auto;
-    width: 100%;
+position: absolute;
+top: 0;
+height: auto;
+width: 100%;
 }
 
 .sticky-thing iframe {
-    position: absolute;
-    top: 0;
-    max-width: 100%;
-    min-height: 100vh;
+position: absolute;
+top: 0;
+max-width: 100%;
+min-height: 100vh;
 }
 
 .steps-container {
-    transform: translate3d(0,0,0);
-    position: relative;
-    padding: 0;
-    z-index: 10;
-    max-width: 35rem;
-    margin: 0 auto;
-    padding-bottom: 4em;
+position: absolute;
+transform: translate3d(0,0,0);
+position: relative;
+padding: 0;
+z-index: 10;
+max-width: 35rem;
+margin: 0 auto;
+padding-bottom: 4em;
 }
 
 .step {
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50svh;
-    transform: translate(0px, 0px);
+color: black;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 50svh;
+transform: translate(0px, 0px);
 }
 
 .step p {
-    text-align: left;
+text-align: left;
 }
 
 .step p:last-child {
-    padding: 0;
+padding: 0;
 }
 
 .step > * {
-    width: 700px;
-    margin-left: 1.3em;
-    margin-right: 1.3em;
-    text-align: center;
-    padding: 1.2em !important;
-    background-color: #ffa880cc;
+width: 700px;
+margin-left: 1.3em;
+margin-right: 1.3em;
+text-align: center;
+padding: 1.2em !important;
+background-color: #ffa880cc;
 }
 
 .sticky-thing > canvas {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    display: block;  
+width: 100% !important;
+height: 100% !important;
+object-fit: cover;
+display: block;  
 }
-
-/* When it's less than 700 pixels wide, do normal scrollytelling */
 
 @media only screen and (min-width: 700px) {
-    .scrolly-container.side-by-side {
-        display: flex;
-    }
-
-    .scrolly-container.side-by-side>div {
-        flex-basis: 0;
-        flex-grow: 1;
-        flex-shrink: 1;
-        padding: 0.75em;
-    }
-
-    .scrolly-container.side-by-side .scrolly-overlay {
-        margin-top: 70vh;
-        order: 0;
-        /* Change these to adjust sizing options */
-        min-width: 15rem;
-        max-width: 20rem;
-    }
-
-    .scrolly-container.side-by-side .sticky-thing {
-        order: 1;
-        flex-grow: 2;
-    }
+.scrolly-container.side-by-side {
+  display: flex;
 }
-        
-    </style>
-    <style>
-        .with-image-bg,
-        .with-video-bg {
-            position: relative;
-            background-size: cover;
-            margin-bottom: 2em;
 
-            min-height: 70svh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+.scrolly-container.side-by-side>div {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0.75em;
+}
 
-            color: rgb(255, 255, 255);
-            text-shadow: 0px 0px 30px black,
-                0px 0px 10px rgba(0, 0, 0, 0.5);
-        }
+.scrolly-container.side-by-side .scrolly-overlay {
+  margin-top: 70vh;
+  order: 0;
+  min-width: 15rem;
+  max-width: 20rem;
+}
 
-        .with-image-bg {
-            background-image: url('full_house.jpg');
-        }
+.scrolly-container.side-by-side .sticky-thing {
+  order: 1;
+  flex-grow: 2;
+}
+}
+  
+</style>
+<style>
+  .with-image-bg,
+  .with-video-bg {
+      position: relative;
+      background-size: cover;
+      margin-bottom: 2em;
+
+      min-height: 70svh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: rgb(255, 255, 255);
+      text-shadow: 0px 0px 30px black,
+          0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .with-image-bg {
+      background-image: url('full_house.jpg');
+  }
 
 .full-width {
-    width: 100%;
-    max-width: none;
+width: 100%;
+max-width: none;
 }
 
 .chart-text-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px; 
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 30px; 
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
 }
 
 .chart {
-    flex: 2; 
-    width: 65%; 
-    min-width: 0;
+flex: 2; 
+width: 65%; 
+min-width: 0;
 }
 
 .text {
-    flex: 1; 
-    width: 35%; 
-    min-width: 0;
+flex: 1; 
+width: 35%; 
+min-width: 0;
 }
 
 @media (max-width: 779px) {
-    .chart-text-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .chart, .text {
-        width: 100%;
-    }
+.chart-text-container {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-    </style>
-    <link href="scrolly-styles.css" rel="stylesheet">
-    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+.chart, .text {
+  width: 100%;
+}
+}
+#g-Housing_Graphics-Artboard_2 {
+display: none;
+}
+
+@media (max-width: 699px) {
+#g-Housing_Graphics-Artboard_1 {
+display: none;
+}
+
+#g-Housing_Graphics-Artboard_2 {
+display: block;
+}
+}
+
+.ai2html-wrapper {
+position: relative;
+width: 100%;
+overflow: hidden;
+max-height: 100vh;
+}
+
+.desktop-graphic {
+display: block;
+}
+.mobile-graphic {
+display: none;
+}
+
+@media (max-width: 699px) {
+.desktop-graphic {
+display: none;
+}
+.mobile-graphic {
+display: block;
+}
+}
+
+.ai2html-wrapper {
+position: relative;
+width: 100%;
+max-height: 100vh;
+overflow: hidden;
+}
+
+.graphic-layer {
+position: relative;
+}
+
+.graphic-layer img {
+width: 100%;
+display: block;
+}
+
+.label-overlay {
+position: absolute;
+top: 72%;  
+left: 33%;
+transform: rotate(-20deg);
+background: #ffffffcc;
+color: #472f2d;
+font-weight: bold;
+font-size: 1rem;
+padding: 4px 8px;
+border-radius: 4px;
+}
+
+.label-overlay.small {
+font-size: 0.8rem;
+top: 74%;
+left: 38%;
+
+
+#g-Housing_Graphics-Artboard_2 {
+display: none;
+}
+
+@media (max-width: 699px) {
+#g-Housing_Graphics-Artboard_1 {
+display: none;
+}
+
+#g-Housing_Graphics-Artboard_2 {
+display: block;
+#g-Housing_Graphics-Artboard_2 {
+display: none;
+}
+
+#g-Housing_Graphics-Artboard_2,
+#g-Money_Graphic-Artboard_2 {
+display: none;
+}
+
+@media (max-width: 699px) {
+#g-Housing_Graphics-Artboard_1,
+#g-Money_Graphic-Artboard_1 {
+display: none;
+}
+
+#g-Housing_Graphics-Artboard_2,
+#g-Money_Graphic-Artboard_2 {
+display: block;
+}
+}
+
+.g-aiAbs {
+z-index: 5;
+position: absolute;
+}
+
+}
+}
+
+}
+
+.zoom-target {
+width: 100%;
+max-width: 700px;
+height: auto;
+margin: 0 auto;
+display: flex;
+justify-content: center;
+align-items: center;
+transform-origin: 55% 75%;
+transition: transform 0.8s ease;
+}
+
+.zoom-target img {
+max-width: 100%;
+height: auto;
+display: block;
+transform-origin: 5% 62%;
+}
+
+.zoomed {
+transform: scale(2.7);
+}
+.g-aiImg {
+width: 100%;
+height: auto;
+display: block;
+}
+.money-target {
+width: 100%;
+max-width: 700px;
+margin: auto;
+transition: none;
+}
+
+#g-Money_Graphic-Artboard_2 {
+display: none;
+}
+
+@media (max-width: 699px) {
+#g-Money_Graphic-Artboard_1 {
+display: none;
+}
+
+#g-Money_Graphic-Artboard_2 {
+display: block;
+}
+}
+.scrolly-block {
+height: 100vh;
+position: relative;
+overflow: hidden;
+}
+
+.sticky-thing {
+position: sticky;
+top: 0;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: visible;
+max-width: 700px;
+margin: auto;
+}
+
+.zoom-target, .money-target {
+max-width: 700px;
+width: 100%;
+margin: auto;
+}
+
+.zoom-target {
+transition: transform 0.8s ease;
+transform-origin: 42% 72%;
+}
+
+.zoomed {
+transform: scale(2.2);
+}
+
+#g-Housing_Graphics-Artboard_2,
+#g-Money_Graphic-Artboard_2 {
+display: none;
+}
+
+@media (max-width: 699px) {
+#g-Housing_Graphics-Artboard_1,
+#g-Money_Graphic-Artboard_1 {
+display: none;
+}
+
+#g-Housing_Graphics-Artboard_2,
+#g-Money_Graphic-Artboard_2 {
+display: block;
+}
+}
+.scrolly-block {
+position: relative;
+}
+
+.steps-container.overlay {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+z-index: 10;
+pointer-events: none;
+}
+
+.step {
+pointer-events: auto;
+}
+.money-target {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+}
+
+#g-Money_Graphic-Artboard_2 {
+  display: none;
+}
+
+@media (max-width: 699px) {
+  #g-Money_Graphic-Artboard_1 {
+    display: none;
+  }
+
+  #g-Money_Graphic-Artboard_2 {
+    display: block;
+  }
+}
+.step {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  transform: translateY(20px);
+}
+
+.step.is-active {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.graphic-caption {
+  font-size: 0.75em;
+  text-align: center;
+  color: #555;
+  margin-top: -8em;
+  margin-bottom: 2em;
+  line-height: 1.2;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+</style>
+<link href="scrolly-styles.css" rel="stylesheet"/>
+<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
 </head>
-
 <body>
-    <div class="header with-image-bg">
-        <div class="content">
-            <h1>The Demand For Housing is Currently Insolvable By Growing Prices and Lower Rates of Construction Workers</h1>
-            <p class="subhead">The demand for housing is on the rise, but so is pricing. This is to keep up with demand with the lack of construction workers to produce more houses.</p>
-            <p class="caption"><p>Photo By <a href="https://www.pexels.com/photo/white-and-brown-concrete-bungalow-under-clear-blue-sky-210617/">Pixabay</a></p>
-        </div>
+  <div class="header with-image-bg">
+<div class="content">
+<h1>The Demand For Housing is Currently Insolvable By Growing Prices and Lower Rates of Construction Workers</h1>
+<p class="subhead">The demand for housing is on the rise, but so is pricing. This is to keep up with demand with the lack of construction workers to produce more houses.</p>
+<p class="caption"><p>Photo By <a href="https://www.pexels.com/photo/white-and-brown-concrete-bungalow-under-clear-blue-sky-210617/">Pixabay</a></p>
+</p></div>
     </div>
-    <div class="content">
-        <div class="byline">
-            <p>By <a href="https://jcw2245.github.io/Portfolio/index">Jaylynn Ward</a></p>
-        </div>
-
-        <p>Housing is a problem that a lot of Americans are facing. This is because of the small number of houses that are built compared to the demand and the pricing that continues to grow. This makes it hard for individuals and families to be able to afford a home to live in.</p>
-
-        <p>The median household costs over $405,000 in 2024 for the whole market. This is about a $18,000 dollar increase from 2023. The largest real estate site, Zillow, tracks their pricing and the difference over time.</p>
-       
-        <div style="min-height:384px" id="datawrapper-vis-5QzT8"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/5QzT8/embed.js" charset="utf-8" data-target="#datawrapper-vis-5QzT8"></script><noscript><img src="https://datawrapper.dwcdn.net/5QzT8/full.png" alt="" /></noscript></div>
-
-        <p>  </p>
-        <p>This also creates stress for realtors who are helping clients find homes as they have to deal with an unstable market filled with high prices, low inventory and declining sales.</p>
-
-        <p>The housing market creates uncertainty for multiple parties involved. The numbers of uncertainty seem to grow.</p>
-
-        <section id="scrolly-images" class="scrolly-container">
-            <div class="sticky-thing">
-              <img src="Housing_Illustrations1.png">
-            </div>
-            <div class="steps-container">
-              <div class="step" id="step1">
-                <div>
-                  <p>The average age to buy a home is 38 years old for first-time buyers, and 56 years old overall, which is a record high.</p>
-
-                </div>
-              </div>
-              <div class="step" id="step2">
-                <p>First-time buyers hit an all-time low with only 24% of the market. </p>
-              </div>
-              <div class="step" id="step3">
-                <p>38% of a family’s income is needed to make a mortgage payment on a single-family home in the U.S. </p>
-              </div>
-            </div>
-          </section>
-
-        <p>Along with the prices increasing for housing, houses are not being built for the demand that they are needed. This is due to several factors like the cost of housing supplies increasing, housing supplies wait times, zoning restrictions and labor shortages.</p>
-        
-        <p>An influx in requests for housing increased after the Covid-19 pandemic, and the labor industry has not been able to keep up. The construction industry has seen an increase in unemployment rates, including the most recent months.</p>
-
-        <div style="min-height:448px" id="datawrapper-vis-4Rynn"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/4Rynn/embed.js" charset="utf-8" data-target="#datawrapper-vis-4Rynn"></script><noscript><img src="https://datawrapper.dwcdn.net/4Rynn/full.png" alt="" /></noscript></div>
-        <p>  </p>
-        <p>Construction workers for housing make up 3.4 million of the over 8 million workers within this industry, according to the most recent Construction Labor Market Report. This is not nearly enough for the number of housing that needs to be built for individuals in the U.S.</p>
-
-
-        <div class="content">
-            
-            <p>  </p>
-            <p>  </p>
-            
-   
-
-    <div class="content">
-        <div class="byline">
-            <p>By <a href="https://jcw2245.github.io/Portfolio/index">Jaylynn Ward</a></p>
-        </div>
-        
+  <div class="content">
+  <div class="byline">
+    <p>By <a href="https://jcw2245.github.io/Portfolio/index">Jaylynn Ward</a></p>
+</div>
+    <p>Housing is a problem that a lot of Americans are facing. This is because of the small number of houses that are built compared to the demand and the pricing that continues to grow. This makes it hard for individuals and families to be able to afford a home to live in.</p>
+    <p>The median household costs over $405,000 in 2024 for the whole market. This is about a $18,000 dollar increase from 2023. The largest real estate site, Zillow, tracks their pricing and the difference over time.</p>
+<div id="datawrapper-vis-5QzT8" style="min-height:384px"><script charset="utf-8" data-target="#datawrapper-vis-5QzT8" defer="" src="https://datawrapper.dwcdn.net/5QzT8/embed.js" type="text/javascript"></script><noscript><img alt="" src="https://datawrapper.dwcdn.net/5QzT8/full.png"/></noscript></div>
+    <p> </p>
+    <p>This also creates stress for realtors who are helping clients find homes as they have to deal with an unstable market filled with high prices, low inventory and declining sales.</p>
+    <p>The housing market creates uncertainty for multiple parties involved. The numbers of uncertainty seem to grow.</p>
+<section class="scrolly-container">
+<div class="scrolly-block">
+  <div class="sticky-thing">
+    <div class="zoom-target" id="housing-zoom">
+    <div class="ai2html" id="g-Housing_Graphics-box">
+  <div class="g-artboard" data-aspect-ratio="1.96" data-min-width="1400" id="g-Housing_Graphics-Artboard_1" style="width:1400px; height:714.36px;">
+  <img alt="" class="g-aiImg" src="Housing_Graphics-Artboard_1.png"/>
+</div>
+  <div class="g-artboard" data-aspect-ratio="1.394" data-max-width="1399" data-min-width="0" id="g-Housing_Graphics-Artboard_2" style="max-width: 750px; max-height: 538px">
+<img alt="" class="g-aiImg" src="Housing_Graphics-Artboard_2.png"/>
     </div>
-   
+  </div>
+  </div>
+</div>
+<div class="steps-container overlay">
+<div class="step" id="step1">
+    <p>The average age to buy a home is 38 years old for first-time buyers, and 56 years old overall, which is a record high.</p>
+</div>
+<div class="step" id="step2">
+    <p>First-time buyers hit an all-time low with only 24% of the market.</p>
+    </div>
+  </div>
+</div>
+</section>
+<div class="graphic-caption">
+  Source: National Association of Realtors. Graphics by Freepik and Jaylynn Ward.
+</div>
 
-    
+
+    <p>Along with the prices increasing for housing, houses are not being built for the demand that they are needed. This is due to several factors like the cost of housing supplies increasing, housing supplies wait times, zoning restrictions and labor shortages.</p>
+    <p>An influx in requests for housing increased after the Covid-19 pandemic, and the labor industry has not been able to keep up. The construction industry has seen an increase in unemployment rates, including the most recent months.</p>
+<div id="datawrapper-vis-4Rynn" style="min-height:448px"><script charset="utf-8" data-target="#datawrapper-vis-4Rynn" defer="" src="https://datawrapper.dwcdn.net/4Rynn/embed.js" type="text/javascript"></script><noscript><img alt="" src="https://datawrapper.dwcdn.net/4Rynn/full.png"/></noscript></div>
+    <p> </p>
+    <p>Construction workers for housing make up 3.4 million of the over 8 million workers within this industry, according to the most recent Construction Labor Market Report. This is not nearly enough for the number of housing that needs to be built for individuals in the U.S.</p>
+    <p>Kevin Hagan, a builder in Texas describes his experience in this industry. He details that he has been doing this for over 15 years and prices have declined for materials to almost pre-Covid numbers. Most of the materials that he uses are through Texas or with subcontractors.</p>
+    <p>For his business, he builds both spec houses and customized houses where the usual building time is 3-4 months.</p>
+    <p>The housing market seems to have no solution in sight for the prices or the demand. He says the hardest part about his job is getting materials because it has to fit into his deadline of building a house and one delay of a product could shift the whole schedule. With this being said, he has sometimes 5-10 houses at a time and things usually run smoothly.</p>
+    <p>“To be honest I never saw myself in this business,” Hagan said. “I am very blessed to be in the position I am now.” </p>
+<div class="content">
+    <p> </p>
+    <p> </p>
+<div class="content">
+<div class="byline">
+    <p>By <a href="https://jcw2245.github.io/Portfolio/index">Jaylynn Ward</a></p>
+  </div>
+</div>
+<script>
+const zoomTarget = document.getElementById('housing-zoom');
+const step2 = document.getElementById('step2');
+
+function checkZoom() {
+  const rect = step2.getBoundingClientRect();
+  const triggerPoint = window.innerHeight * 0.5;
+
+  if (rect.top < triggerPoint && rect.bottom > 0) {
+    zoomTarget.classList.add('zoomed');
+  } else {
+    zoomTarget.classList.remove('zoomed');
+  }
+}
+
+window.addEventListener('scroll', checkZoom);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+<script>
+  const scroller = scrollama();
+
+  scroller
+    .setup({
+      step: ".step",
+      offset: 0.4,
+      once: false
+    })
+    .onStepEnter(response => {
+      response.element.classList.add("is-active");
+    })
+    .onStepExit(response => {
+      response.element.classList.remove("is-active");
+    });
+</script>
+
+</div></div>
 
 </body>
-
-</html> 
+</html>
